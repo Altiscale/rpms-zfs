@@ -1,5 +1,5 @@
 Name:           spl
-Version:        0.6.5.10
+Version:        0.6.5.11
 Release:        1%{?dist}
 Summary:        Commands to control the kernel modules
 
@@ -33,7 +33,7 @@ make install DESTDIR=%{?buildroot}
 %{_mandir}/man5/*
 
 %changelog
-* Mon Jun 12 2017 Tony Hutter <hutter2@llnl.gov> - 0.6.5.10-1
+* Mon Jun 12 2017 Tony Hutter <hutter2@llnl.gov> - 0.6.5.11-1
 - Linux 4.12 compat: PF_FSTRANS was removed zfsonlinux/spl#614
 - Clear PF_FSTRANS over spl_filp_fallocate() zfsonlinux/splzfsonlinux/zfs#4529
 - glibc 2.25 compat: remove assert(X=Y) zfsonlinux/spl#610
@@ -51,7 +51,7 @@ make install DESTDIR=%{?buildroot}
 - Linux 4.8 compat: Fix RW_READ_HELD zfsonlinux/zfs#5233
 - Linux 4.9 compat: group_info changes zfsonlinux/spl#581
 - Fix crgetgroups out-of-bound and misc cred fix zfsonlinux/spl#556
-* Fri Sep 9 2016 Ned Bass <bass6@llnl.gov> - 0.6.5.10-1
+* Fri Sep 9 2016 Ned Bass <bass6@llnl.gov> - 0.6.5.11-1
 - Fix HAVE_MUTEX_OWNER test for kernels prior to 4.6 zfsonlinux/spl#566
 - Add handling for kernel 4.7's CONFIG_TRIM_UNUSED_KSYMS zfsonlinux/spl#565
 - Linux 4.8 compat: rw_semaphore atomic_long_t count zfsonlinux/spl#563

@@ -42,7 +42,7 @@
 
 Name:           %{module}-kmod
 
-Version:        0.6.5.10
+Version:        0.6.5.11
 Release:        1%{?dist}
 Summary:        Kernel module(s)
 

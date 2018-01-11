@@ -60,7 +60,7 @@
 %endif
 
 Name:           zfs
-Version:        0.6.5.10
+Version:        0.6.5.11
 Release:        1%{?dist}
 Summary:        Commands to control the kernel modules and libraries
 
@@ -327,7 +327,7 @@ exit 0
 %endif
 
 %changelog
-* Mon Jun 12 2017 Tony Hutter <hutter2@llnl.gov> - 0.6.5.10-1
+* Mon Jun 12 2017 Tony Hutter <hutter2@llnl.gov> - 0.6.5.11-1
 - OpenZFS 8005 - poor performance of 1MB writes on certain RAID-Z configurations zfsonlinux/zfs#5931
 - Add MS_MANDLOCK mount failure message zfsonlinux/zfs#4729 zfsonlinux/zfs#6199
 - Fix import wrong spare/l2 device when path change zfsonlinux/zfs#6158
