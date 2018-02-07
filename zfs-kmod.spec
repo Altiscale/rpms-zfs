@@ -186,6 +186,69 @@ chmod u+x ${RPM_BUILD_ROOT}%{kmodinstdir_prefix}/*/extra/*/*/*
 rm -rf $RPM_BUILD_ROOT
 
 %changelog
+* Mon Jul 10 2017 Tony Hutter <hutter2@llnl.gov> - 0.6.5.11-1
+- Linux 4.12 compat: super_setup_bdi_name() - add missing code zfsonlinux/zfs#6089 zfsonlinux/zfs#6324
+- Musl libc fixes zfsonlinux/zfs#6310
+- Increase zfs_vdev_async_write_min_active to 2 zfsonlinux/zfs#5926
+- Fix int overflow in zbookmark_is_before()- Fix RHEL 7.4 bio_set_op_attrs build error zfsonlinux/zfs#6234 zfsonlinux/zfs#6271
+- Fix RHEL 7.4 bio_set_op_attrs build error zfsonlinux/zfs#6253 zfsonlinux/zfs#6271
+- GCC 7.1 fixes zfsonlinux/zfs#6253
+- Remove complicated libspl assert wrappers zfsonlinux/zfs#4449
+- Compatibilty with glibc-2.23 zfsonlinux/zfs#6132
+- glibc 2.5 compat: use correct header for makedev() et al. zfsonlinux/zfs#5945
+* Mon Jun 12 2017 Tony Hutter <hutter2@llnl.gov> - 0.6.5.10-1
+- OpenZFS 8005 - poor performance of 1MB writes on certain RAID-Z configurations zfsonlinux/zfs#5931
+- Add MS_MANDLOCK mount failure message zfsonlinux/zfs#4729 zfsonlinux/zfs#6199
+- Fix import wrong spare/l2 device when path change zfsonlinux/zfs#6158
+- Fix import finding spare/l2cache when path changes zfsonlinux/zfs#6158
+- Linux 4.9 compat: fix zfs_ctldir xattr handling zfsonlinux/zfs#6189
+- Linux 4.12 compat: fix super_setup_bdi_name() call zfsonlinux/zfs#6147
+- Linux 4.12 compat: CURRENT_TIME removed zfsonlinux/zfs#6114
+- Linux 4.12 compat: super_setup_bdi_name() zfsonlinux/zfs#6089
+- Limit zfs_dirty_data_max_max to 4G zfsonlinux/zfs#6072 zfsonlinux/zfs#6081
+- OpenZFS 8166 - zpool scrub thinks it repaired offline device zfsonlinux/zfs#5806 zfsonlinux/zfs#6103
+- vdev_id: fix failure due to multipath -l bug zfsonlinux/zfs#6039
+- Guarantee PAGESIZE alignment for large zio buffers zfsonlinux/zfs#6084
+- Fix harmless "BARRIER is deprecated" kernel warning on Centos 6.8 zfsonlinux/zfs#5739 zfsonlinux/zfs#5828
+- Add kmap_atomic in dmu_bio_copy- zdb: segfault in dump_bpobj_subobjs() zfsonlinux/zfs#3905
+- Fix atomic_sub_64() i386 assembly implementation zfsonlinux/zfs#5671 zfsonlinux/zfs#5717
+- Fix loop device becomes read-only zfsonlinux/zfs#5776 zfsonlinux/zfs#5855
+- Allow ZVOL bookmarks to be listed recursively zfsonlinux/zfs#4503 zfsonlinux/zfs#5072
+- Fix zfs-mount.service failure on boot zfsonlinux/zfs#5719
+- Fix iput() calls within a tx zfsonlinux/zfs#5758
+- Fix off by one in zpl_lookup zfsonlinux/zfs#5768
+- Linux 4.11 compat: iops.getattr and friends zfsonlinux/zfs#5875
+- Linux 4.11 compat: avoid refcount_t name conflict zfsonlinux/zfs#5823 zfsonlinux/zfs#5842
+* Fri Feb 3 2017 Brian Behlendorf <behlendorf1@llnl.gov> - 0.6.5.9-1
+- Use large stacks when available zfsonlinux/zfs#4059
+- Use set_cached_acl() and forget_cached_acl() when possible zfsonlinux/zfs#5378
+- Fix batch free zpl_posix_acl_release zfsonlinux/zfs#5340 zfsonlinux/zfs#5353
+- Fix zfsctl_snapshot_{,un}mount() issues zfsonlinux/zfs#5250
+- Fix systemd services configutation through preset file zfsonlinux/zfs#5356
+- Fix RLIMIT_FSIZE enforcement zfsonlinux/zfs#5587 zfsonlinux/zfs#5673 zfsonlinux/zfs#5720 zfsonlinux/zfs#5726
+- Fix leak on zfs_sb_create() failure zfsonlinux/zfs#5490 zfsonlinux/zfs#5496
+- Fix zpl_fallocate_common() creak leak zfsonlinux/zfs#5244 zfsonlinux/zfs#5330
+- Fix fchange in zpl_ioctl_setflags() zfsonlinux/zfs#5486
+- Fix wrong operator in xvattr.h zfsonlinux/zfs#5486
+- Fix counting '@' in dataset namelen zfsonlinux/zfs#5432 zfsonlinux/zfs#5456
+- Fix dmu_object_size_from_db() call under spinlock zfsonlinux/zfs#3858
+- Fix lookup_bdev() on Ubuntu zfsonlinux/zfs#5336
+- Fix receiving custom snapshot properties zfsonlinux/zfs#5189
+- Fix bio merging w/noop scheduler zfsonlinux/zfs#5181
+- Fix sync behavior for disk vdevs zfsonlinux/zfs#4858
+- Fix uninitialized variable in avl_add() zfsonlinux/zfs#3609
+- Fix tq_lock contention by making write taskq non-dynamic zfsonlinux/zfs#5236
+- Fix atime handling (relatime, lazytime) zfsonlinux/zfs#4482
+- Linux 4.10 compat: BIO flag changes zfsonlinux/zfs#5499
+- Linux 4.9 compat: inode_change_ok() renamed setattr_prepare() zfsonlinux/zfs#5307
+- Linux 4.9 compat: remove iops->{set,get,remove}xattr zfsonlinux/zfs#5307
+- Linux 4.9 compat: iops->rename() wants flags zfsonlinux/zfs#5307
+- Linux 4.9 compat: file_operations->aio_fsync removal zfsonlinux/zfs#5393
+- Linux 4.9 compat: Remove dir inode operations from zpl_inode_operations zfsonlinux/zfs#5307
+- Linux 4.7 compat: Fix deadlock during lookup on case-insensitive zfsonlinux/zfs#5124 zfsonlinux/zfs#5141 zfsonlinux/zfs#5147 zfsonlinux/zfs#5148
+- Linux 3.14 compat: assign inode->set_acl zfsonlinux/zfs#5371 zfsonlinux/zfs#5375
+- Linux 2.6.32 compat: Reorder HAVE_BIO_RW_* checks zfsonlinux/zfs#4951 zfsonlinux/zfs#4959
+- Remove dead root pool import code zfsonlinux/zfs#4951
 * Fri Sep 9 2016 Ned Bass <bass6@llnl.gov> - 0.6.5.8-1
 - Linux 4.6, 4.7 and 4.8 compatibility zfsonlinux/spl#549 zfsonlinux/spl#563 zfsonlinux/spl#565 zfsonlinux/spl#566 zfsonlinux/zfs#4664 zfsonlinux/zfs#4665 zfsonlinux/zfs#4717 zfsonlinux/zfs#4726 zfsonlinux/zfs#4892  zfsonlinux/zfs#4899 zfsonlinux/zfs#4922  zfsonlinux/zfs#4944  zfsonlinux/zfs#4946 zfsonlinux/zfs#4951
 - Fix new tunable to ignore hole_birth, enabled by default zfsonlinux/zfs#4833
