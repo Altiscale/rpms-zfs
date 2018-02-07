@@ -33,7 +33,9 @@ make install DESTDIR=%{?buildroot}
 %{_mandir}/man5/*
 
 %changelog
-* Mon Jun 12 2017 Tony Hutter <hutter2@llnl.gov> - 0.6.5.11-1
+* Mon Jul 10 2017 Tony Hutter <hutter2@llnl.gov> - 0.6.5.11-1
+- Fix RWSEM_SPINLOCK_IS_RAW check failed  zfsonlinux/zfs#622
+* Mon Jun 12 2017 Tony Hutter <hutter2@llnl.gov> - 0.6.5.10-1
 - Linux 4.12 compat: PF_FSTRANS was removed zfsonlinux/spl#614
 - Clear PF_FSTRANS over spl_filp_fallocate() zfsonlinux/splzfsonlinux/zfs#4529
 - glibc 2.25 compat: remove assert(X=Y) zfsonlinux/spl#610
