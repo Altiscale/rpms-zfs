@@ -3,7 +3,7 @@
 #define repo    chaos
 
 # (un)define the next line to either build for the newest or all current kernels
-%define buildforkernels newest
+#define buildforkernels newest
 #define buildforkernels current
 #define buildforkernels akmod
 
