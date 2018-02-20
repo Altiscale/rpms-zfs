@@ -364,7 +364,7 @@ print_customrpmtemplate ()
 			# create development package
 			if [[ "${devel}" ]]; then
 				# create devel package including common headers
-				print_rpmtemplate_kmoddevelpkg --custom "${kernel}"
+				# print_rpmtemplate_kmoddevelpkg --custom "${kernel}"
 
 				# create devel package
 				print_rpmtemplate_per_kmoddevelpkg --custom "${kernel}"
